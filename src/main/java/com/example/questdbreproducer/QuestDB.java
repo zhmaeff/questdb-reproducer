@@ -179,7 +179,7 @@ public class QuestDB extends ServerMain {
         });
     }
 
-    private <T> T doQuery(String query, Function<RecordCursor, T> mapper) {
+    public <T> T doQuery(String query, Function<RecordCursor, T> mapper) {
         final SqlExecutionContextImpl ctx = new SqlExecutionContextImpl(cairoEngine, 1);
         try (SqlCompiler compiler = new SqlCompiler(cairoEngine)) {
             log.info("Executing SQL '{}'", query);
